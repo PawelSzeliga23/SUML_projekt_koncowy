@@ -4,9 +4,14 @@ import utils.colors as colors
 import utils.navigation_utils as nav_utils
 import photo_detection
 
-def navigation(selected = None):
+
+def navigation(selected=None):
+    """
+    Navigation sidebar for the PsiLook app.
+    :param selected:
+    :return:
+    """
     with st.sidebar:
-        #st.image("logo.jpg")
         selected = option_menu(
             menu_title="PsiLook",
             options=list(nav_utils.PAGES.keys()),

@@ -1,4 +1,4 @@
-import navigation
+from pages import navigation
 import streamlit as st
 import models.yolo_init as yolo_init
 

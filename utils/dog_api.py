@@ -3,13 +3,9 @@ import requests
 
 def get_dog_image_by_breed(breed_name: str) -> str:
     """
-    Fetch a dog image URL from the Dog CEO API based on the breed name.
-
-    Parameters:
-    breed_name (str): The name of the dog breed.
-
-    Returns:
-    str: URL of the dog image.
+    Fetch a random dog image URL for the given breed name from the Dog CEO API.
+    :param breed_name:
+    :return: str: URL of the dog image
     """
 
     base_url = "https://dog.ceo/api/breed"

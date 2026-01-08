@@ -5,6 +5,14 @@ import utils.dog_api as dog_api
 
 
 def detect_photo(uploaded_file):
+    """
+    Perform dog bread detection pipeline.
+    First, it converts the uploaded file to an array,
+    then it uses the YOLO model to predict the dog breeds in the photo.
+    Finally, it retrieves the top 3 detected labels along with corresponding images.
+    :param uploaded_file:
+    :return: detected labels with images
+    """
     photo = image_utils.convert_photo_to_array(uploaded_file)
 
     model = YOLOModel()

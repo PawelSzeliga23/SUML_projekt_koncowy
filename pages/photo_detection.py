@@ -1,6 +1,8 @@
 import streamlit as st
 import controllers.photo_controller as photo_controller
 import components.dog_card as dog_card
+
+
 def photo_detection():
     st.title("Wykrywanie rasy psów na zdjęciach")
 
