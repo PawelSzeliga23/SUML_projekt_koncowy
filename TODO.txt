@@ -1,0 +1,4 @@
+Stworzyc polskie nazwy labeli zrobic mapper do polskich i do teych na stronie api
+Stworzyc bibilioteke dostępnych ras
+pomyslec nad fedbekcem dla uzytkownika czytelny komunikat o bledzie oraz o nie znaleziemu rasy i tak dalej
+zapilmenentowac flimy i kamere
