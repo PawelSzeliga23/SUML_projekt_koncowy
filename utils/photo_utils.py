@@ -1,6 +1,8 @@
+"""
+Utility functions for converting photos to and from NumPy arrays.
+"""
 from PIL import Image
 import numpy as np
-import cv2
 
 
 def convert_photo_to_array(image_path):

@@ -1,7 +1,10 @@
+"""
+Controller for handling photo uploads and dog breed detection and whole pipline.
+"""
 from models.yolo_model import YOLOModel
-import utils.photo_utils as image_utils
-import utils.labels_utils as labels_utils
-import utils.dog_api as dog_api
+from utils import photo_utils
+from utils import labels_utils
+from utils import dog_api
 
 
 def detect_photo(uploaded_file):
@@ -13,17 +16,21 @@ def detect_photo(uploaded_file):
     :param uploaded_file:
     :return: detected labels with images
     """
-    photo = image_utils.convert_photo_to_array(uploaded_file)
+    photo = photo_utils.convert_photo_to_array(uploaded_file)
 
     model = YOLOModel()
 
     result = model.predict(photo)
 
+    if len(result[0].boxes) == 0:
+        return []
+
     detected_labels = labels_utils.get_top3_labels_with_conf(result)
 
     for label in detected_labels:
-        label['label'] = label['label'].replace('_', ' ')
-        image = dog_api.get_dog_image_by_breed(label['label'])
+        api_label = labels_utils.map_label_to_api(label['label'])
+        label['label'] = labels_utils.map_label_to_polish(label['label'])
+        image = dog_api.get_dog_image_by_breed(api_label)
         label['image'] = image
 
     return detected_labels

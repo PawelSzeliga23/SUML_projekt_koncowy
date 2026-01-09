@@ -1,9 +1,23 @@
-from pages import navigation
+"""
+Main application file for the Streamlit app.
+"""
+
 import streamlit as st
-import models.yolo_init as yolo_init
+from views import navigation
+from models import yolo_init
 
-st.set_page_config(layout="wide")
 
-yolo_init.load_model()
+def main():
+    """
+    Main function to run the Streamlit app.
+    :return:
+    """
+    st.set_page_config(layout="wide")
 
-navigation.navigation()
+    yolo_init.load_model()
+
+    navigation.navigation()
+
+
+if __name__ == "__main__":
+    main()
